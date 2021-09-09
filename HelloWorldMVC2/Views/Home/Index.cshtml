@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*Razor*@
+
+<div class="text-center">
+    <h1 class="display-4">Good afternoon @ViewBag.name!</h1>
+    @{ 
+        var now = DateTime.Now;
+        <h4>Today is: @now.ToShortDateString()</h4>
+    }
+</div>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HelloWorldMVC2.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*reflection*@
+<h1 class="text-center">Customer landing page!</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>Picture</th>         
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <img src="@item.PictureURL" width="150" height="120" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                
+                    @Html.ActionLink("Delete",
+                        "Delete",
+                        new { id = item.Id },
+                        new { onClick = "return confirm('Are you sure?')", @style = "color:red" })
+                                                                   
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
