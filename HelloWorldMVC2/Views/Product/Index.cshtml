@@ -41,14 +41,17 @@
                 <img src="@item.PictureURL" width="150" height="120" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                
-                    @Html.ActionLink("Delete",
-                        "Delete",
-                        new { id = item.Id },
-                        new { onClick = "return confirm('Are you sure?')", @style = "color:red" })
-                                                                   
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
+
+                @Html.ActionLink("Details",
+                        "Details",
+                        new { id = item.Id }) | |
+
+                @Html.ActionLink("Delete",
+                    "Delete",
+                    new { id = item.Id },
+                    new { onClick = "return confirm('Are you sure?')", @style = "color:red" })
+
             </td>
         </tr>
 }
